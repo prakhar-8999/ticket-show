@@ -1,9 +1,20 @@
 <script setup>
-const register = (event) => {
+import request from "../request";
+import { RouterLink } from "vue-router";
+
+const register = async (event) => {
   event.preventDefault();
   const forms = document.forms;
 
   const form = forms.registerForm;
+
+  if (form.password.value !== form.cpassword.value) {
+    Swal.fire({
+      icon: "warning",
+      title: "Password mismatch!",
+    });
+    return;
+  }
 
   const formData = {
     name: form.name.value,
@@ -11,6 +22,16 @@ const register = (event) => {
     username: form.username.value,
     password: form.password.value,
   };
+
+  const { data, status } = await request("POST", "signup", {}, formData);
+  if (status === 200) {
+    console.log(data);
+    Swal.fire({
+      icon: "success",
+      title: data.msg,
+    });
+    form.reset();
+  }
 };
 </script>
 <template>
@@ -115,6 +136,12 @@ const register = (event) => {
                       </button>
                     </div>
                   </form>
+                  <p class="text-muted mt-5 mb-0" style="margin-left: 40px">
+                    Have already an account?
+                    <RouterLink to="/login" class="fw-bold text-body"
+                      ><u>Login here</u></RouterLink
+                    >
+                  </p>
                 </div>
                 <div
                   class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
