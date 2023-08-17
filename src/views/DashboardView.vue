@@ -91,14 +91,14 @@ const toggleNavBar = () => {
 ::after {
   box-sizing: border-box;
 }
-body {
+/* body {
   position: relative;
   margin: var(--header-height) 0 0 0;
   padding: 0 1rem;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   transition: 0.5s;
-}
+} */
 a {
   text-decoration: none;
 }

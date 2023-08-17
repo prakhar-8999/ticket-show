@@ -28,7 +28,9 @@ const addTheater = async (event) => {
 };
 </script>
 <template>
-  <div style="margin-top: 4cm">
+  <div style="margin-top: 2cm; padding-left: 40px; padding-right: 40px">
+    <h1>Add Theater</h1>
+    <br /><br />
     <form name="addTheater" @submit="addTheater">
       <div class="mb-3">
         <label for="name" class="form-label">Theater Name</label>
