@@ -2,8 +2,10 @@
 import { ref } from "vue";
 import AddTheaterView from "../components/AddTheaterView.vue";
 import AddShowsView from "../components/AddShowsView.vue";
+import PreviousTheaterView from "../components/PreviousTheaterView.vue";
+import PreviousShowsView from "../components/PreviousShowsView.vue";
 
-const job = ref(0);
+const job = ref(2);
 const user = ref(true);
 
 const toggleNavBar = () => {
@@ -45,6 +47,14 @@ const toggleNavBar = () => {
               <i class="fas fa-tachometer-alt fa-fw me-3"></i>
               <span class="nav_name">Add Shows</span>
             </span>
+            <span class="nav_link" @click="() => (job = 2)">
+              <i class="fas fa-tachometer-alt fa-fw me-3"></i>
+              <span class="nav_name">Previous Theater</span>
+            </span>
+            <span class="nav_link" @click="() => (job = 3)">
+              <i class="fas fa-tachometer-alt fa-fw me-3"></i>
+              <span class="nav_name">Previous Shows</span>
+            </span>
           </div>
           <!-- <div class="nav_list" v-if="!user">
             <span class="nav_link">
@@ -70,6 +80,12 @@ const toggleNavBar = () => {
       </div>
       <div v-if="job === 1">
         <AddShowsView />
+      </div>
+      <div v-if="job === 2">
+        <PreviousTheaterView />
+      </div>
+      <div v-if="job === 3">
+        <PreviousShowsView />
       </div>
     </div>
     <!--Container Main end-->
