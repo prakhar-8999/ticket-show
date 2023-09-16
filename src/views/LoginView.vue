@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from "vue-router";
+import {RouterLink} from "vue-router";
 import request from "../request";
 import router from "../router";
 
@@ -11,7 +11,7 @@ const login = async (event) => {
     username: form.username.value,
     password: form.password.value,
   };
-  const { data, status } = await request("POST", "signin", {}, formData);
+  const {data, status} = await request("POST", "signin", {}, formData);
   if (status === 200) {
     console.log(data);
     Swal.fire({
@@ -22,7 +22,8 @@ const login = async (event) => {
       timer: 1500,
     });
     localStorage.setItem("access", data.token);
-    router.push({ path: "dashboard" });
+    localStorage.setItem("is_admin", data.is_admin);
+    router.push({path: "dashboard"});
 
     // form.reset();
   }

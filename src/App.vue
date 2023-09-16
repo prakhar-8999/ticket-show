@@ -1,8 +1,7 @@
 <script setup>
-import { RouterView } from "vue-router";
-import router from "./router";
+import {RouterView} from "vue-router";
 
-if (localStorage.getItem("access")) router.push({ path: "dashboard" });
+// if (localStorage.getItem("access")) router.push({ path: "dashboard" });
 </script>
 
 <template>

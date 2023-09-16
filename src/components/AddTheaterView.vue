@@ -13,7 +13,7 @@ const addTheater = async (event) => {
   };
   console.log(formData);
 
-  const { data, status } = await request("POST", "addTheater", {}, formData);
+  const {data, status} = await request("POST", "addTheater", {}, formData);
   if (status === 200) {
     console.log(data);
     Swal.fire({

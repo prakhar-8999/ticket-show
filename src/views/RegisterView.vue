@@ -53,7 +53,7 @@ const register = async (event) => {
                     @submit="register"
                   >
                     <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <i class="fas fa-user fa-lg me-3 fa-fw" style="margin-top: 30px;"></i>
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="name">Your Name</label>
                         <input
